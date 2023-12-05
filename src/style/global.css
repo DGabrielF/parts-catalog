@@ -1,1 +1,142 @@
 @import url("./reset.css");
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+}
+input,
+button {
+  padding: 5px 5px 2px 5px;
+  width: 100%;
+  border-radius: 5px;
+  border-style: none;
+}
+button {
+  background-color: #9393db;
+}
+button.cancel {
+  background-color: #db9393
+}
+
+.main-menu {
+  padding: .5rem .5rem .2rem .5rem;
+  width: 100%;
+  height: 11rem;
+  background-color: #eef;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: .1rem;
+}
+.main-menu h1 {
+letter-spacing: normal;
+}
+.main-menu .search {
+  padding: .5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: .2rem;
+}
+
+.main-menu .categories {
+  padding: .2rem;
+  width: 100%;
+  background-color: #eef;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow-x: auto;
+  gap: 2%;
+}
+.main-menu .categories .category {
+  padding: .5rem .5rem .2rem .5rem;
+  background-color: #ddf;
+  border: 1px solid #00000095;
+  border-radius: 5px;
+}
+.main-menu .categories .category:hover {
+  background-color: #9393db;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.content .group {
+  width: 98%;
+  background-color: #ddf;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+}
+.content .group .items {
+  width: 100%;
+  display: flex;
+  gap: .75rem;
+  overflow: auto;
+}
+.content .group .items .item {
+  padding: .5rem .5rem .2rem .5rem;
+  min-width: 16rem;
+  width: 30%;
+  border: 2px solid #00099095;
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .group .item h3 {
+  padding: .5rem .5rem .2rem .5rem;
+  width: 100%;
+  background-color: #00000015;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: inherit;
+}
+.content .group .item img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border: 2px solid #00000015;
+}
+.login-page {
+  padding: .2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-page .login-box,
+.edit-page .insert-item {
+  width: 98%;
+  height: 100%;
+  padding: .2rem;
+  background-color: #ddddff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;
+
+}
+.login-page .login-box div,
+.edit-page .insert-item div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login-page .login-box div label {
+  text-align: center;
+}
