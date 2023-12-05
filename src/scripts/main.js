@@ -1,4 +1,7 @@
-state = {
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
+import { getFirestore, addDoc, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js';
+
+const state = {
   pages: {
     content: document.querySelector(".content-page"),
     login: document.querySelector(".login-page"),
@@ -14,6 +17,7 @@ state = {
     length: document.querySelector("#item-length"),
   },
   values: {
+    itemsList: null,
     user: null,
     password: null,
     name: null,
@@ -38,6 +42,23 @@ const firebaseConfig = {
   storageBucket: "parts-catalog-ae03d.appspot.com",
   messagingSenderId: "443141760317",
   appId: "1:443141760317:web:33054c5eb0c1b3e9a59154"
+}
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const COLL = "Parts"
+
+async function fetchData() {
+  try{
+    const collectionRef = collection(db, COLL);
+    const snapshot = await getDocs(collectionRef);
+    const dataFromFirestore = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    state.values.itemsList = dataFromFirestore;
+  } catch (error) {
+    console.error("Erro ao buscar dados:", error)
+  }
 }
 
 function convertToBase64(files) {
@@ -69,16 +90,21 @@ function showThisPage(page) {
 }
 
 async function saveItem () {
-  state.view.name.value; 
-  state.view.category.value;
-  state.view.weight.value;
-  state.view.width.value;
-  state.view.height.value;
-  state.view.length.value;
+  await addDoc(collection(db, COLL), {
+    name: state.view.name.value,
+    category: state.view.category.value,
+    weight: state.view.weight.value,
+    width: state.view.width.value,
+    height: state.view.height.value,
+    length: state.view.length.value,
+    image: state.values.uploadedImage,
+  })
 }
+
 async function init() {
-  showThisPage("edit")
-  
+  showThisPage("edit")  
+  await fetchData()
+
   state.actions.image.addEventListener("change", e => onFileSelected(e));
   state.actions.dropArea.addEventListener("drop", e => onFileDrop(e));
   state.actions.saveItem.addEventListener("click", () => saveItem())
