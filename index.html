@@ -23,7 +23,7 @@
         <div class="category">caminhões</div>
       </div>
     </div>
-    <div class="content">
+    <div class="content-page">
       <div class="group pneus">
         <h2>Pneus</h2>
         <div class="items">
@@ -95,9 +95,9 @@
           <label for="item-category">categoria</label>
           <input type="text" id="item-category">          
         </div>
-        <div>
+        <div id="drop-area">
           <label for="item-image">imagem</label>
-          <input type="file" id="item-image">
+          <input type="file" id="item-image" accept="image/*" multiple>
         </div>
         <div>
           <label for="item-weight">peso</label>
@@ -119,7 +119,7 @@
           <label>detalhes</label>
           <textarea rows="5" cols="30" class="item-detail">Detalhes do produto</textarea>
         </div>
-        <button class="save-item">salvar</button>
+        <button id="save-item">salvar</button>
         <button type="reset" class="clean-item cancel">limpar</button>
       </div>
     </div>
@@ -133,5 +133,9 @@
       <button class="close-detail cancel">fechar</button>
     </div>
   </div>
+
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js"></script>
+  <script defer type="module" src="./src/scripts/main.js"></script>
 </body>
 </html>
