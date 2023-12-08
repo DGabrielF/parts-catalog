@@ -140,3 +140,9 @@ letter-spacing: normal;
 .login-page .login-box div label {
   text-align: center;
 }
+
+.detail-page {
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}

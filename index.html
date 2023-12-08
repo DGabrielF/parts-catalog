@@ -10,7 +10,7 @@
 <body>
   <div class="container">
     <div class="main-menu">
-      <h1>Empresa do Nei</h1>
+      <h1 id="edit-item">Empresa do Nei</h1>
       <div class="search">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#223" viewBox="0 0 256 256"><path d="M192,112a80,80,0,1,1-80-80A80,80,0,0,1,192,112Z" opacity="0.2"></path><path d="M229.66,218.34,179.6,168.28a88.21,88.21,0,1,0-11.32,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg>
         <input type="text" class="search-input">
@@ -23,54 +23,7 @@
         <div class="category">caminhões</div>
       </div>
     </div>
-    <div class="content-page">
-      <div class="group pneus">
-        <h2>Pneus</h2>
-        <div class="items">
-          <div class="item">
-            <h3>Nome do produto</h3>
-            <img src="" alt="imagem do produto">
-            <span>Detalhes sobre o produto</span>
-            <button class="detail-button">Mais detalhes</button>
-          </div>
-          <div class="item">
-            <h3>Nome do produto</h3>
-            <img src="" alt="imagem do produto">
-            <span>Detalhes sobre o produto</span>
-            <button class="detail-button">Mais detalhes</button>
-          </div>
-          <div class="item">
-            <h3>Nome do produto</h3>
-            <img src="" alt="imagem do produto">
-            <span>Detalhes sobre o produto</span>
-            <button class="detail-button">Mais detalhes</button>
-          </div>
-          <div class="item">
-            <h3>Nome do produto</h3>
-            <img src="" alt="imagem do produto">
-            <span>Detalhes sobre o produto</span>
-            <button class="detail-button">Mais detalhes</button>
-          </div>
-          <div class="item">
-            <h3>Nome do produto</h3>
-            <img src="" alt="imagem do produto">
-            <span>Detalhes sobre o produto</span>
-            <button class="detail-button">Mais detalhes</button>
-          </div>
-        </div>
-        <div class="group tool">
-          <h2>Ferramentas</h2>
-          <div class="items">
-            <div class="item">
-              <h3>Nome do produto</h3>
-              <img src="" alt="imagem do produto">
-              <span>Detalhes sobre o produto</span>
-              <button class="detail-button">Mais detalhes</button>
-            </div>
-          </div>
-        </div>
-        </div>
-    </div>
+    <div class="content-page"></div>
     <div class="login-page">
       <div class="login-box">
         <div>
@@ -79,13 +32,15 @@
         </div>
         <div>
           <label>senha</label>
-          <input type="text" class="password">
+          <input type="password" class="password">
         </div>
         <button class="login">Entrar</button>
+        <button class="close-login cancel">Cancelar</button>
       </div>
     </div>
     <div class="edit-page">
       <div class="insert-item">
+        <button class="back cancel">voltar</button>
         <h2>Item</h2>
         <div>
           <label for="item-name">nome</label>
@@ -94,6 +49,10 @@
         <div>
           <label for="item-category">categoria</label>
           <input type="text" id="item-category">          
+        </div>
+        <div>
+          <label for="item-description">descrição</label>
+          <input type="text" id="item-description">          
         </div>
         <div id="drop-area">
           <label for="item-image">imagem</label>
@@ -125,17 +84,20 @@
     </div>
     <div class="detail-page">
       <span id="detail-name"></span>
+      <span id="detail-description"></span>
       <span id="detail-category"></span>
       <span id="detail-weight"></span>
       <span id="detail-width"></span>
       <span id="detail-height"></span>
       <span id="detail-length"></span>
+      <span id="detail-detail"></span>
       <button class="close-detail cancel">fechar</button>
     </div>
   </div>
 
   <script type="module" src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
   <script type="module" src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"></script>
   <script defer type="module" src="./src/scripts/main.js"></script>
 </body>
 </html>
